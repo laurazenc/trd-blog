@@ -62,6 +62,18 @@ const TextBase = styled.span<IText>`
       letterSpacing: "0.005em",
     })}
   }
+
+  &.is-h5,
+  &.is-h5 p {
+    ${css({
+      fontSize: "20px",
+      fontStyle: "normal",
+      fontWeight: 700,
+      lineHeight: "30px",
+      letterSpacing: "0.05em",
+      textTransform: "uppercase",
+    })}
+  }
   &.is-body1,
   &.is-body1 p {
     ${css({

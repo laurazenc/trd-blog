@@ -4,6 +4,7 @@ import { Flex, Image, Text, Icon, Spacer } from "../";
 import { light as colors } from "../../theme/colors";
 import { useResponsive } from "../../context/Responsive";
 import React from "react";
+import Link from "next/link";
 
 type TileProps = {
   post: Post;
@@ -64,25 +65,29 @@ export const Tile = ({ post }: TileProps) => {
   const { isResponsive } = useResponsive();
   return (
     <>
-      <TileWrapper width={isResponsive ? "100%" : "250px"}>
-        <Image
-          height={160}
-          width={isResponsive ? undefined : 250}
-          image={post.cover}
-        />
-        <Overlay />
-        <Title>
-          <Text type="h4" color={colors.white}>
-            {post.title}
-          </Text>
-        </Title>
-        <Rank>
-          <Icon height={"50px"} width={"50px"} name="dice" />
-          <Text type="h5" withMarkdown={false} color={colors.white}>
-            {post.rank}
-          </Text>
-        </Rank>
-      </TileWrapper>
+      <Link as={`/posts/${post.slug}`} href="/posts/[slug]" shallow={true}>
+        <a style={{ width: isResponsive ? "100%" : "250px" }}>
+          <TileWrapper width={isResponsive ? "100%" : "250px"}>
+            <Image
+              height={160}
+              width={isResponsive ? undefined : 250}
+              image={post.cover}
+            />
+            <Overlay />
+            <Title>
+              <Text type="h4" color={colors.white}>
+                {post.title}
+              </Text>
+            </Title>
+            <Rank>
+              <Icon height={"50px"} width={"50px"} name="dice" />
+              <Text type="h5" withMarkdown={false} color={colors.white}>
+                {post.rank}
+              </Text>
+            </Rank>
+          </TileWrapper>
+        </a>
+      </Link>
       <Spacer height="24px" />
     </>
   );

@@ -43,6 +43,7 @@ const Meta = () => {
           `,
         }}
       />
+      <link rel="stylesheet" type="text/css" href="/nprogress.css" />
     </Head>
   );
 };
