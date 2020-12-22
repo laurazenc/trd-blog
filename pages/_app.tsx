@@ -1,9 +1,11 @@
-import React from "react";
-import App from "next/app";
+import React, { useEffect } from "react";
 import Page from "../components/Page";
 import { AppProvider } from "../context/AppProvider";
 import { I18nProvider } from "../context/I18nProvider";
 import { ResponsiveProvider } from "../context/Responsive";
+import { useRouter } from "next/router";
+
+import * as gtag from "../utils/gtag";
 
 type AppProp = {
   Component: React.FunctionComponent;
@@ -11,6 +13,17 @@ type AppProp = {
 };
 
 const MyApp = ({ Component, pageProps }: AppProp) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: URL) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
   return (
     <AppProvider>
       <ResponsiveProvider>
