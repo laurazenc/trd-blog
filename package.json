@@ -1,8 +1,5 @@
 {
   "dependencies": {
-    "@apollo/client": "^3.3.6",
-    "@apollo/react-hooks": "^4.0.0",
-    "@apollo/react-ssr": "^4.0.0",
     "@types/styled-components": "^5.1.5",
     "dayjs": "^1.9.7",
     "dayjs-ext": "^2.2.0",

@@ -27,6 +27,10 @@ const Meta = () => {
         color="#000000"
       />
       <link rel="shortcut icon" href="/favicon/favicon.fav" />
+      <meta
+        http-equiv="Content-Security-Policy"
+        content="upgrade-insecure-requests"
+      />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
