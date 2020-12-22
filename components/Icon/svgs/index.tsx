@@ -1,0 +1,11 @@
+export { default as calendar } from "./calendar";
+export { default as eye } from "./eye";
+export { default as instagram } from "./instagram";
+export { default as row } from "./calendar";
+export { default as search } from "./search";
+export { default as twitter } from "./twitter";
+export { default as logo } from "./logo";
+export { default as dice } from "./dice";
+export { default as moon } from "./moon";
+export { default as sun } from "./sun";
+export { default as logoTwoLines } from "./logo-two-lines";
