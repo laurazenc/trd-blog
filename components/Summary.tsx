@@ -16,6 +16,10 @@ const Box = styled(Flex)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray};
   height: 50px;
 
+  span {
+    white-space: pre;
+  }
+
   @media (max-width: ${config.global.breakpoints.middle}px) {
     border-top: none;
     border-left: 1px solid ${({ theme }) => theme.colors.lightGray};
