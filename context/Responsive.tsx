@@ -4,6 +4,7 @@ import config from "../config";
 
 type ContextProps = {
   isResponsive: boolean;
+  vw: number;
 };
 
 export const ResponsiveContext = createContext({} as ContextProps);
@@ -40,7 +41,7 @@ export const ResponsiveProvider = ({ children }) => {
     };
   }, []);
   return (
-    <ResponsiveContext.Provider value={{ isResponsive }}>
+    <ResponsiveContext.Provider value={{ isResponsive, vw }}>
       {children}
     </ResponsiveContext.Provider>
   );

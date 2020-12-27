@@ -13,6 +13,13 @@ type StateProps = {
   data?: any[];
 };
 
+export async function fetchAPI(path) {
+  const requestUrl = buildUrl(path);
+  const response = await fetch(requestUrl);
+  const data = await response.json();
+  return data;
+}
+
 export const useApi = (url: string) => {
   const [data, setData] = useState<StateProps>({
     state: apiStates.LOADING,
@@ -27,8 +34,7 @@ export const useApi = (url: string) => {
     setPartData({
       state: apiStates.LOADING,
     });
-    fetch(buildUrl(url))
-      .then((response) => response.json())
+    fetchAPI(url)
       .then((data) => {
         setPartData({
           state: apiStates.SUCCESS,

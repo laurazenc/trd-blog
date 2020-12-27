@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Theme, theme as themes } from "../../theme";
+import { theme as themes } from "../../theme";
+import { Image } from "../../types";
+
 interface IProvider {
   query?: string;
   children: React.ReactNode;
@@ -15,7 +17,7 @@ type ContextProps = {
 
 const AppContext = React.createContext({} as ContextProps);
 
-export const AppProvider = ({ query, children }: IProvider) => {
+export const AppProvider = ({ query, global = {}, children }: IProvider) => {
   const [search, updateSearch] = useState(query || "");
   const [currentTheme, setCurentTheme] = useState("light");
   const [theme, setTheme] = useState(themes.lightTheme);
