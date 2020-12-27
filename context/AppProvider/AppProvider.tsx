@@ -17,7 +17,7 @@ type ContextProps = {
 
 const AppContext = React.createContext({} as ContextProps);
 
-export const AppProvider = ({ query, global = {}, children }: IProvider) => {
+export const AppProvider = ({ query, children }: IProvider) => {
   const [search, updateSearch] = useState(query || "");
   const [currentTheme, setCurentTheme] = useState("light");
   const [theme, setTheme] = useState(themes.lightTheme);
