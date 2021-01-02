@@ -13,10 +13,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    height: 100vh;
     font-family: 'Inter', sans-serif;
     background: ${({ theme }) =>
       `linear-gradient(${theme.colors.bg} 70%, ${theme.colors.secondary})`};
+    background-repeat: no-repeat;
+
   }
   p {
     margin: 0;
@@ -42,7 +43,7 @@ const Page: React.FunctionComponent = ({ children }) => {
         alignItems="center"
         justifyContent="space-between"
         width="100%"
-        height="100vh"
+        height="100%"
       >
         <GlobalStyle />
         <Meta />
