@@ -8,9 +8,10 @@ import { light as colors } from "../theme/colors";
 
 const InputWrapper = styled(Row)`
   width: 200px;
-  height: 30px;
-  border: 1px solid ${({ theme }) => theme.colors.lightGray};
-  border-radius: 2px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(26, 26, 67, 0.1);
   input {
     border: none;
     outline: none;
@@ -25,26 +26,30 @@ const InputWrapper = styled(Row)`
 `;
 
 export const SearchInput = () => {
-  const { search, updateSearch } = useApp();
+  const { theme, search, updateSearch } = useApp();
   const router = useRouter();
 
-  useEffect(() => {
-    return () => {};
-  }, []);
+  const keyPressed = ({ key }) => {
+    if (key === "Enter" && search !== "") {
+      router.push(`/search/${search}`);
+    }
+  };
 
   return (
     <InputWrapper justifyContent="space-between" alignItems="center">
       <input
+        onKeyDown={keyPressed}
         onChange={(e) => updateSearch(e.target.value.toLocaleLowerCase())}
         value={search}
+        placeholder="Buscar..."
       />
       <Flex
-        width="30px"
-        height="30px"
+        width="40px"
+        height="40px"
         justifyContent="center"
         alignItems="center"
         margin="0 -1px 0 0"
-        backgroundColor={colors.red}
+        borderRadius="0 3px 3px 0"
         onClick={(e) => {
           e.preventDefault();
           if (search !== "") {
@@ -52,7 +57,12 @@ export const SearchInput = () => {
           }
         }}
       >
-        <Icon name="search" height="24px" width="24px" />
+        <Icon
+          name="search"
+          height="24px"
+          width="24px"
+          color={theme.colors.black}
+        />
       </Flex>
     </InputWrapper>
   );

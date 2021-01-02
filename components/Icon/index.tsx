@@ -17,10 +17,10 @@ interface IIcon {
     | "moon";
   width?: string;
   height?: string;
+  color?: string;
 }
 
-export const Icon = ({ name, width = "16", height = "16" }: IIcon) => {
+export const Icon = ({ name, width = "16", height = "16", color }: IIcon) => {
   const Svg = svgs[name];
-  const { theme } = useApp();
-  return <Svg {...{ width, height, color: theme.colors.black }} />;
+  return <Svg {...{ width, height, color }} />;
 };

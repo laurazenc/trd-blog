@@ -13,8 +13,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    height: 100vh;
     font-family: 'Inter', sans-serif;
-    background-color: ${({ theme }) => theme.colors.bg};
+    background: ${({ theme }) =>
+      `linear-gradient(${theme.colors.bg} 70%, ${theme.colors.secondary})`};
   }
   p {
     margin: 0;
@@ -41,12 +43,15 @@ const Page: React.FunctionComponent = ({ children }) => {
         justifyContent="space-between"
         width="100%"
         height="100vh"
-        backgroundColor={theme.colors.bg}
       >
         <GlobalStyle />
-        <Column>
-          <Meta />
-          <Flex width="100%" justifyContent="center">
+        <Meta />
+        <Column width="100%" justifyContent="center" alignItems="center">
+          <Flex
+            width="100%"
+            justifyContent="center"
+            backgroundColor={theme.colors.bg}
+          >
             <Flex
               maxWidth={isResponsive ? "100%" : `${config.global.maxWidth}px`}
               width="100%"
@@ -55,17 +60,19 @@ const Page: React.FunctionComponent = ({ children }) => {
               <Header />
             </Flex>
           </Flex>
-          <Flex width="100%" justifyContent="center">
-            <Flex
-              maxWidth={isResponsive ? "100%" : `${config.global.maxWidth}px`}
-              padding="16px"
-              flexDirection={isResponsive ? "column" : "row"}
-            >
-              {children}
-              <Spacer width="56px" />
-              <Sidebar />
+          <Column justifyContent="center" width="100%">
+            <Flex width="100%" justifyContent="center">
+              <Flex
+                maxWidth={isResponsive ? "100%" : `${config.global.maxWidth}px`}
+                padding="16px"
+                flexDirection={isResponsive ? "column" : "row"}
+              >
+                {children}
+                <Spacer width="56px" />
+                <Sidebar />
+              </Flex>
             </Flex>
-          </Flex>
+          </Column>
         </Column>
         <Footer />
       </Column>

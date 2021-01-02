@@ -1,6 +1,7 @@
 export default {
   defaultLang: "es",
   localePath: "/locale",
+  themeCached: "trd-theme",
   instagram: "https://www.instagram.com/thereddice/",
   twitter: "https://www.twitter.com/thereddice_tw/",
   jugamosuna:

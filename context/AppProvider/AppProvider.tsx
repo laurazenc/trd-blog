@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import config from "../../config";
 import { theme as themes } from "../../theme";
-import { Image } from "../../types";
 
 interface IProvider {
   query?: string;
@@ -19,13 +19,27 @@ const AppContext = React.createContext({} as ContextProps);
 
 export const AppProvider = ({ query, children }: IProvider) => {
   const [search, updateSearch] = useState(query || "");
-  const [currentTheme, setCurentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState("light");
   const [theme, setTheme] = useState(themes.lightTheme);
 
   const toggleTheme = () => {
-    setCurentTheme(currentTheme === "light" ? "dark" : "light");
+    setCurrentTheme(currentTheme === "light" ? "dark" : "light");
     setTheme(currentTheme === "light" ? themes.darkTheme : themes.lightTheme);
   };
+
+  useEffect(() => {
+    const themeCached = JSON.parse(
+      localStorage.getItem(config.themeCached as string) as any
+    ); // @ts-ignore
+    if (themeCached) {
+      setCurrentTheme(themeCached);
+      setTheme(themeCached === "light" ? themes.lightTheme : themes.darkTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(config.themeCached, JSON.stringify(currentTheme));
+  }, [currentTheme]);
 
   return (
     <AppContext.Provider

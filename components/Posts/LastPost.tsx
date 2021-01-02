@@ -4,6 +4,7 @@ import { light as colors } from "../../theme/colors";
 import { Column, Spacer, Image, Text, Flex, PostResume } from "..";
 import Link from "next/link";
 import { useResponsive } from "../../context/Responsive";
+import { useApp } from "../../context/AppProvider";
 
 type LastPostProps = {
   post: Post;
@@ -11,10 +12,14 @@ type LastPostProps = {
 
 export const LastPost = ({ post }: LastPostProps) => {
   const { isResponsive } = useResponsive();
+  const { theme } = useApp();
   return (
     <Link as={`/posts/${post.slug}`} href="/posts/[slug]" shallow={true}>
       <a>
-        <Flex flexDirection={isResponsive ? "column" : "row"}>
+        <Flex
+          flexDirection={isResponsive ? "column" : "row"}
+          borderRadius="6px"
+        >
           <Flex height="300px" width="100%">
             <Image
               height={300}

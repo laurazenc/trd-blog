@@ -13,6 +13,7 @@ interface IFlex {
   padding?: CSS.Property.Padding;
   margin?: CSS.Property.Margin;
   backgroundColor?: CSS.Property.BackgroundColor;
+  borderRadius?: CSS.Property.BorderRadius;
 }
 
 export const Flex = styled.div<IFlex>`
@@ -27,6 +28,7 @@ export const Flex = styled.div<IFlex>`
   height: ${(props) => props.height || "auto"};
   padding: ${(props) => props.padding || 0};
   margin: ${(props) => props.margin || 0};
+  border-radius: ${(props) => props.borderRadius || 0};
   ${(props) => props.maxWidth && `max-width: ${props.maxWidth};`};
   ${(props) =>
     props.backgroundColor && `background-color: ${props.backgroundColor};`};

@@ -15,8 +15,8 @@ const SidebarLoader = () => {
       width={250}
       height={920}
       viewBox="0 0 250 920"
-      backgroundColor="#f3f3f3"
-      foregroundColor="#ecebeb"
+      backgroundColor="#fff"
+      foregroundColor="#f3f3f3"
       uniqueKey="sidebar-placeholder"
     >
       <rect x="0" y={0} width="100" height="28" />

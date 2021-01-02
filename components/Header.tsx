@@ -14,11 +14,11 @@ const IconWrapper = styled.div`
 `;
 
 const Header = () => {
-  const { currentTheme, toggleTheme } = useApp();
+  const { currentTheme, theme, toggleTheme } = useApp();
   const { isResponsive } = useResponsive();
   return (
     <Flex
-      height={isResponsive ? "150px" : "80px"}
+      height={isResponsive ? "170px" : "80px"}
       width="100%"
       justifyContent="space-between"
       alignItems="center"
@@ -31,6 +31,7 @@ const Header = () => {
               <Icon
                 name={isResponsive ? "logoTwoLines" : "logo"}
                 height={isResponsive ? "80px" : "40px"}
+                color={theme.colors.black}
               />
             </IconWrapper>
           </a>
@@ -46,13 +47,23 @@ const Header = () => {
         <Flex>
           <Link href={config.instagram}>
             <a>
-              <Icon name="instagram" width="24px" height="24px" />
+              <Icon
+                name="instagram"
+                width="24px"
+                height="24px"
+                color={theme.colors.black}
+              />
             </a>
           </Link>
           <Spacer width="16px" />
           <Link href={config.twitter}>
             <a>
-              <Icon name="twitter" width="24px" height="24px" />
+              <Icon
+                name="twitter"
+                width="24px"
+                height="24px"
+                color={theme.colors.black}
+              />
             </a>
           </Link>
           <Spacer width="16px" />
@@ -61,6 +72,7 @@ const Header = () => {
               name={currentTheme === "light" ? "moon" : "sun"}
               width="24px"
               height="24px"
+              color={theme.colors.black}
             />
           </div>
         </Flex>

@@ -20,8 +20,8 @@ const PostsSkeleton = ({ isResponsive, vw }) => {
       width={700}
       height={920}
       viewBox="0 0 700 920"
-      backgroundColor="#f3f3f3"
-      foregroundColor="#ecebeb"
+      backgroundColor="#fff"
+      foregroundColor="#f3f3f3"
       uniqueKey="home-placeholder"
     >
       <rect x="0" y="0" width="400" height="300" />

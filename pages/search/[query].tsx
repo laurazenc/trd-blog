@@ -17,11 +17,15 @@ const Query = ({ results }) => {
       {!results || results.length === 0 ? (
         <Text type="body1">{t("no-results")}</Text>
       ) : (
-        <Grid>
-          {results.map((r: Post) => {
-            return <ColumnPost key={r.id} post={r} />;
-          })}
-        </Grid>
+        <>
+          <Text type="body1">{`${results.length} ${t("results-found")}`}</Text>
+          <Spacer height="24px" />
+          <Grid>
+            {results.map((r: Post) => {
+              return <ColumnPost key={r.id} post={r} />;
+            })}
+          </Grid>
+        </>
       )}
     </Column>
   );
