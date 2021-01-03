@@ -27,22 +27,7 @@ const Meta = () => {
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet"
       />
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-RYJCLQR57Y"
-      ></script>
 
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-RYJCLQR57Y');
-          `,
-        }}
-      />
       <link rel="stylesheet" type="text/css" href="/nprogress.css" />
     </Head>
   );

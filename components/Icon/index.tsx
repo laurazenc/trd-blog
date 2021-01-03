@@ -1,5 +1,4 @@
 import React from "react";
-import { useApp } from "../../context/AppProvider";
 import * as svgs from "./svgs";
 
 interface IIcon {
@@ -20,7 +19,7 @@ interface IIcon {
   color?: string;
 }
 
-export const Icon = ({ name, width = "16", height = "16", color }: IIcon) => {
+export const Icon = ({ name, width, height, color }: IIcon) => {
   const Svg = svgs[name];
   return <Svg {...{ width, height, color }} />;
 };

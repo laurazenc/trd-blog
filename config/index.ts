@@ -2,6 +2,7 @@ export default {
   defaultLang: "es",
   localePath: "/locale",
   themeCached: "trd-theme",
+  adsense: "ca-pub-7290636813463744",
   instagram: "https://www.instagram.com/thereddice/",
   twitter: "https://www.twitter.com/thereddice_tw/",
   jugamosuna:
